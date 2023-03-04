@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" x-data="theme()" :class="$store.app.isDark ? 'dark' : ''">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/svg+xml" href="/img/ficon.svg">
+    <meta name="generator" content="Astro v1.7.2">
+    <title>sofac - Home</title>
+  <link rel="stylesheet" href="/astro-landing-sofac/assets/index.d2767757.css" /><script type="module" src="/astro-landing-sofac/hoisted.462ee856.js"></script></head>
+  <body x-data="homeSpy()">
+    <!-- Navbar -->
+    <div x-cloak x-data="navbar()" x-on:scroll.window="scroll()" class="fixed top-0 left-0 w-full z-50 transition-all duration-300" :class="scrolled || $store.app.mobileOpen ? 'bg-white dark:bg-muted-900 shadow-lg shadow-muted-300/30 dark:shadow-muted-900/40' : ''">
+  <div class="w-full max-w-7xl mx-auto flex items-center justify-between pl-4 pr-0 lg:pr-4 font-sans">
+    <!-- Left -->
+    <div class="w-full lg:w-auto flex items-center gap-12">
+      <a href="/" class="flex items-center gap-2">
+        <div class="transition-all duration-300" :class="scrolled || $store.app.mobileOpen ? 'text-orange-500 rotate-0' : 'text-primary-600'">
+          <svg class="fill-current" :class="'w-16 h-16'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><path class="text-orange-500" d="M 63.114132,142.22517 C 41.501894,121.20401 37.387443,85.000786 53.664734,59.628121 68.037618,36.107137 97.615946,22.863955 124.67393,28.942434 c 25.37292,5.107004 46.93087,25.759417 52.30505,51.195638 5.22456,22.714918 -2.23488,48.006368 -19.54577,63.724658 1.42692,-2.51007 6.65251,-7.55426 8.79618,-11.60321 13.99972,-21.22334 13.68934,-50.84563 -0.93382,-71.677094 C 151.8493,40.264184 126.44804,28.768236 102.31941,32.445751 76.716231,35.581269 54.160277,55.350342 47.928107,80.411379 c -5.72668,20.865121 -0.146409,44.312581 14.502228,60.262591 2.114191,2.23358 5.950058,6.74472 0.683797,1.5512 z"></path>
+  <path class="text-cyan-600" d="m 41.892852,155.14025 c 16.728996,-6.32986 36.89894,-10.4884 50.112018,-11.99679 -2.447271,-1.11802 -7.429924,-4.24642 -7.429924,-4.24642 0,0 -0.402115,-9.61065 -0.402115,-14.39551 11.084326,8.17511 26.802819,11.34354 39.587929,5.46833 7.1354,-4.64962 6.17023,-16.73127 -1.5238,-20.36322 C 111.12933,102.26963 95.799447,101.18979 87.625258,89.703083 80.4505,78.853078 84.951074,62.47979 96.741427,56.8866 109.27847,49.66485 124.88298,50.394224 138.1562,54.892302 c -0.43556,9.958661 -0.20469,6.133135 -1.03477,13.969917 -7.66131,-4.888457 -17.5187,-6.763534 -26.49712,-4.966025 -7.06858,0.902626 -13.456999,7.377006 -11.770117,14.827864 1.988257,8.285985 11.172097,10.959065 18.180637,13.647104 9.63151,3.937816 21.08413,8.301428 24.94548,18.929348 3.70795,12.07982 1.16671,15.98436 -4.66836,23.73476 -3.96626,4.85599 -12.16204,7.65142 -12.16204,7.65142 19.44674,1.3265 41.05309,6.49115 56.17771,14.2901 C 115.0919,141.77113 96.300157,145.5861 41.892852,155.14025 Z"></path>
+</svg>
+        </div>
+        <span class="font-sans text-lg tracking-widest uppercase text-muted-800 dark:text-muted-100">olutio</span>
+      </a>
+      <!-- <div
+        role="button"
+        class="hidden md:block relative"
+        @click.away="closeFilters()"
+      >
+        <input
+          type="text"
+          class="peer pl-9 pr-4 py-2 h-10 text-sm leading-5 font-sans w-full rounded-xl bg-white text-slate-600 border border-slate-300 focus-visible:shadow-lg focus-visible:shadow-slate-300/50 dark:focus-visible:shadow-slate-800/50 placeholder:text-slate-300 dark:placeholder:text-slate-500 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 outline-none focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-slate-300 dark:focus-visible:outline-slate-600 focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+          placeholder="Search your doctor..."
+          @focus="openFilters()"
+        />
+        <div
+          class="absolute top-0 left-0 h-10 w-10 flex justify-center items-center text-slate-400 peer-focus:text-primary-500 peer-disabled:opacity-20 transition-colors duration-300"
+        >
+          <i class="iconify w-4 h-4" data-icon="lucide:search"></i>
+        </div>
+        <NavbarSearchFilters />
+      </div> -->
+      <div class="flex items-center justify-center h-20 w-20 lg:hidden ml-auto">
+        <button class="flex relative justify-center items-center w-10 h-10 focus:outline-none lg:hidden scale-90" @click="$store.app.mobileOpen = !$store.app.mobileOpen">
+  <div class="block top-1/2 left-6 w-4 -translate-x-1/2 -translate-y-1/2">
+    <span class="block absolute w-7 h-0.5 bg-current transition duration-500 ease-in-out" :class="[
+        $store.app.mobileOpen ? 'rotate-45' : '-translate-y-2',
+        scrolled || $store.app.mobileOpen ? 'text-primary-500' : 'text-muted-800 dark:text-white'
+      ]"></span>
+    <span class="block absolute w-5 h-0.5 bg-current transition duration-500 ease-in-out" :class="[
+        $store.app.mobileOpen ? 'opacity-0' : '',
+        scrolled || $store.app.mobileOpen ? 'text-primary-500' : 'text-muted-800 dark:text-white'
+      ]"></span>
+    <span class="block absolute w-7 h-0.5 bg-current transition duration-500 ease-in-out" :class="[
+        $store.app.mobileOpen ? '-rotate-45' : 'translate-y-2',
+        scrolled || $store.app.mobileOpen ? 'text-primary-500' : 'text-muted-800 dark:text-white'
+      ]"></span>
+  </div>
+</button>
+      </div>
+    </div>
+    <!-- Right -->
+    <div class="flex-col items-center lg:justify-end gap-x-6" :class="$store.app.mobileOpen ? 'absolute top-[80px] left-0 w-full flex text-center px-6 pt-2 pb-6 border-t border-muted-200 dark:border-muted-800 bg-white dark:bg-muted-900 shadow-lg shadow-muted-300/40 dark:shadow-muted-900/50' : 'hidden lg:flex lg:flex-row'">
+      <div class="flex flex-col lg:flex-row items-center gap-x-6">
+        <!-- <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300"
+          :class="activeStep === 'spy-1' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'"
+        >
+          <a href="#doctors">Doctors</a>
+        </div> -->
+        <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300" :class="activeStep === 'spy-2' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'">
+          <a href="#activity">Sector</a>
+        </div>
+        <div class="relative py-3 lg:py-5 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:h-[3px] after:rounded-t-full after:transition-all after:duration-300 transition-colors duration-300" :class="activeStep === 'spy-3' ? 'text-primary-500 after:bg-primary-500 after:w-full' : 'text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 after:w-0'">
+          <a href="#characteristics">Characteristics</a>
+        </div>
+        <!-- <div class="relative py-3 lg:py-5 text-slate-500 dark:text-slate-400 hover:text-muted-700 dark:hover:text-muted-100 transition-colors duration-300">
+          <a href="#">Sign In</a>
+        </div> -->
+        <div class="py-3 lg:py-5">
+          <label x-cloak class="block w-9 h-9 overflow-hidden relative mx-auto lg:m-0 rounded-full focus-visible:tw-accessibility-static">
+  <input type="checkbox" class="absolute top-0 left-0 z-[2] w-full h-full opacity-0 cursor-pointer" @change="toggleTheme()">
+  <span class="block relative w-9 h-9 bg-white dark:bg-muted-800 rounded-full border border-muted-300 dark:border-muted-700">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="block absolute top-1/2 left-1/2 w-5 h-5 text-yellow-400 transition-all duration-300 pointer-events-none" :class="[
+        !$store.app.isDark
+          ? 'opacity-100 -translate-x-[50%] -translate-y-1/2'
+          : 'opacity-0  -translate-x-[50%] -translate-y-[150%]',
+      ]" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5" class="fill-current"></circle>
+        <path class="fill-current" d="M12 1v2"></path>
+        <path class="fill-current" d="M12 21v2"></path>
+        <path class="fill-current" d="M4.22 4.22l1.42 1.42"></path>
+        <path class="fill-current" d="M18.36 18.36l1.42 1.42"></path>
+        <path class="fill-current" d="M1 12h2"></path>
+        <path class="fill-current" d="M21 12h2"></path>
+        <path class="fill-current" d="M4.22 19.78l1.42-1.42"></path>
+        <path class="fill-current" d="M18.36 5.64l1.42-1.42"></path>
+      </g>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="block absolute top-1/2 left-1/2 w-5 h-5 text-yellow-400 transition-all duration-300 pointer-events-none" :class="[
+        !$store.app.isDark
+          ? 'opacity-0 -translate-x-[45%] -translate-y-[150%]'
+          : 'opacity-100 -translate-x-[45%] -translate-y-1/2',
+      ]" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path class="fill-current" d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z"></path>
+      </g>
+    </svg>
+  </span>
+</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!-- Body slot -->
+    <div class="min-h-screen w-full overflow-hidden bg-muted-100 dark:bg-muted-1000">
+  <div class="min-h-screen w-full max-w-7xl mx-auto flex items-center px-4">
+    <div class="w-full grid grid-cols-12">
+      <div class="col-span-12 ltablet:col-span-5 lg:col-span-5">
+        <div class="h-full ptablet:max-w-lg ptablet:mx-auto flex items-center mb-8 ltablet:mb-0 lg:mb-0">
+          <div class="text-center ltablet:text-center lg:text-center font-sans space-y-4">
+            <h1 class="font-medium text-4xl ptablet:text-5xl lg:text-5xl text-muted-800 dark:text-white">
+              FACTURACIÓN EN LÍNEA MODALIDADES
+            </h1>
+            <p class="text-lg text-muted-500 dark:text-muted-400">
+              Computarizada en Linea y Electronica en Linea
+            </p>
+            <div class="w-full flex items-center justify-center ltablet:justify-start lg:justify-center gap-2">
+              <a href="/home" class="relative font-sans font-normal inline-flex items-center justify-center leading-5 no-underline space-x-1 text-white bg-primary-600 h-12 px-5 py-3 text-sm rounded-xl hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/20 tw-accessibility transition-all duration-300" :class="'min-w-[130px]'">
+  Get Started
+</a>
+              <a href="/home" class="relative font-sans font-normal inline-flex items-center justify-center gap-x-1 rounded-xl leading-5 no-underline text-slate-700 bg-white border dark:text-white dark:bg-slate-700 dark:border-slate-600 h-12 px-5 py-3 text-sm hover:enabled:bg-slate-50 dark:hover:enabled:bg-slate-600 active:enabled:bg-slate-200 dark:active:enabled:bg-slate-700 tw-accessibility transition-all duration-300" :class="'min-w-[130px]'">
+  Explore
+</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative col-span-12 ltablet:col-span-7 lg:col-span-7 mx-auto">
+        <div class="w-96 h-80 relative rounded-t-[60%] rounded-b-[45%] overflow-hidden bg-orange-500 origin-center">
+          <img src="/img/illustrations/man.png" alt="Imagen" class="object-cover object-top mx-auto absolute inset-0" style="clip-path: ellipse(90% 70% at 75% 50%)">
+        </div>
+     
+      </div>
+        <!-- <div class="relative col-span-12 ltablet:col-span-7 lg:col-span-7">
+          <img
+            src="/img/illustrations/man.png"
+            class="block dark:hidden w-full ltablet:max-w-[540px] max-w-[620px] mx-auto"
+            alt="Hero image"
+          />
+          <img
+            src="/img/illustrations/man.png"
+            class="hidden dark:block w-full ltablet:max-w-[540px] max-w-[620px] mx-auto"
+            alt="Hero image"
+          /> -->
+          <!-- Decoration -->
+          <!-- <HeroMainModuleOne /> -->
+        </div>
+  </div>
+</div><section class="w-full py-16 px-4 bg-muted-100 dark:bg-muted-1000">
+  <div class="w-full max-w-7xl mx-auto">
+  <div id="activity" class="w-full max-w-xl mb-14">
+  <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">On-Demand Healthcare</h4>
+  <h2 class="font-sans text-4xl font-medium mb-4 text-muted-800 dark:text-muted-100">Facturación en Línea</h2>
+  <p class="text-lg text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div><div class="grid md:grid-cols-3 ltablet:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-24" x-intersect="activeStep = ''">
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-primary-600'" data-icon="icons8:buy"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Compra Venta</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-rose-500'" data-icon="icon-park-twotone:buy"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Alquileres</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-primary-600'" data-icon="fluent-mdl2:education"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Sector Educativo</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-rose-500'" data-icon="fontisto:heartbeat"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Hospitales y Clínicas</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-primary-600'" data-icon="ri:hotel-line"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Hoteles</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+        <!-- Item -->
+        <div>
+          <div class="font-sans">
+  <i class="iconify w-7 h-7 mb-2" :class="'text-primary-600'" data-icon="ic:outline-mode-of-travel"></i>
+  <h4 class="font-light text-lg mb-2 text-muted-800 dark:text-muted-100">Servicio de Turismo</h4>
+  <p class="text-sm text-muted-500 dark:text-muted-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tibi hoc incredibile, quod beatissimum.</p>
+</div>
+        </div>
+      </div>
+</div>
+</section><section class="w-full py-16 px-4 bg-muted-100 dark:bg-muted-1000" :class="'border-b border-muted-200 dark:border-muted-800'">
+  <div class="w-full max-w-7xl mx-auto">
+  <div id="activity" class="w-full max-w-xl mb-14" :class="'mx-auto text-center'">
+  <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">Healthcare Professionals</h4>
+  <h2 class="font-sans text-4xl font-medium mb-4 text-muted-800 dark:text-muted-100">Funciones adaptadas a tu negocio</h2>
+  <p class="text-lg text-muted-500 dark:text-muted-400">Simplifica tareas y potencia tus ventas con un conjunto de potentes funciones</p>
+</div>
+</div>
+</section><section class="w-full py-16 px-4 bg-muted-100 dark:bg-muted-1000" :class="'overflow-hidden'">
+  <div class="w-full max-w-7xl mx-auto">
+  <div class="py-10">
+        <div id="characteristics" class="flex flex-col md:flex-row items-center py-6" x-intersect="activeStep = 'spy-2'">
+  <!--Column-->
+  <div class="md:flex-column md:w-1/2">
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4 lg:pl-10">
+        <!--Badge-->
+        <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">
+          Exportación de Facturas
+        </h4>
+        <!--Title-->
+        <h2 class="font-heading font-medium text-4xl text-muted-800 dark:text-white">
+          Sistema Autorizado
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Solutio-Facturación es un sistema autorizado por el Servicio de
+          Impuestos Nacionales de Bolivia.
+        </p>
+        <!--Link-->
+        <a href="#" class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300">
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4 lg:pl-10">
+        <!--Badge-->
+        <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">
+          Exportación de Facturas
+        </h4>
+        <!--Title-->
+        <h2 class="font-heading font-medium text-4xl text-muted-800 dark:text-white">
+          Exportación de Facturas
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Solutio-Facturación permite exportar sus facturas emitidas en formatos
+          PDF, Excel y XML.
+        </p>
+        <!--Link-->
+        <a href="#" class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300">
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--Column-->
+  <div class="h-96 w-96 md:w-1/2 relative p-6">
+    <img src="/img/illustrations/invoice/dibujo.png" alt="Imagen" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full">
+  </div>
+</div>
+        <div class="flex flex-col-reverse md:flex-row items-center py-6">
+  <!--Column-->
+  <div class="h-96 w-96 md:w-1/2 relative p-6">
+    <!--Feature-->
+      <img src="/img/illustrations/invoice/dibujo-2.png" alt="Imagen" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full">
+  </div>
+
+  <!--Column-->
+
+  <div class="md:flex-column md:w-1/2">
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4">
+        <!--Badge-->
+        <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">
+          Remote Conversations
+        </h4>
+        <!--Title-->
+        <h2 class="font-heading font-medium text-4xl text-muted-800 dark:text-white">
+          Su Logotipo en la Factura
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Personalizamos su logotipo en las facturas para la impresión de la
+          misma.
+        </p>
+        <!--Link-->
+        <a href="#" class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300">
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4">
+        <!--Badge-->
+        <h4 class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500">
+          Remote Conversations
+        </h4>
+        <!--Title-->
+        <h2 class="font-heading font-medium text-4xl text-muted-800 dark:text-white">
+          Envio por corréo Electrónico
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Envíe las facturas a sus clientes directamente desde nuestro sistema y
+          vea cuándo el cliente ha recibido y leído su factura.
+        </p>
+        <!--Link-->
+        <a href="#" class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300">
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+</div>
+</section>
+
+    <!-- Footer -->
+    <footer class="font-sans bg-white dark:bg-muted-900">
+  <div class="w-full max-w-7xl mx-auto">
+  <div class="px-5 py-24 mx-auto">
+      <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4 justify-between">
+        <div class="w-full mb-10 ltablet:mb-0 lg:mb-0 ltablet:w-2/6 lg:w-2/6 px-4">
+          <div class="max-w-[280px] mx-auto md:mx-0">
+            <a href="/" class="flex items-center justify-center md:justify-start gap-2 mb-4">
+              <div class="text-primary-600 transition-all duration-300">
+                <svg class="fill-current" :class="'w-16 h-16'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><path class="text-orange-500" d="M 63.114132,142.22517 C 41.501894,121.20401 37.387443,85.000786 53.664734,59.628121 68.037618,36.107137 97.615946,22.863955 124.67393,28.942434 c 25.37292,5.107004 46.93087,25.759417 52.30505,51.195638 5.22456,22.714918 -2.23488,48.006368 -19.54577,63.724658 1.42692,-2.51007 6.65251,-7.55426 8.79618,-11.60321 13.99972,-21.22334 13.68934,-50.84563 -0.93382,-71.677094 C 151.8493,40.264184 126.44804,28.768236 102.31941,32.445751 76.716231,35.581269 54.160277,55.350342 47.928107,80.411379 c -5.72668,20.865121 -0.146409,44.312581 14.502228,60.262591 2.114191,2.23358 5.950058,6.74472 0.683797,1.5512 z"></path>
+  <path class="text-cyan-600" d="m 41.892852,155.14025 c 16.728996,-6.32986 36.89894,-10.4884 50.112018,-11.99679 -2.447271,-1.11802 -7.429924,-4.24642 -7.429924,-4.24642 0,0 -0.402115,-9.61065 -0.402115,-14.39551 11.084326,8.17511 26.802819,11.34354 39.587929,5.46833 7.1354,-4.64962 6.17023,-16.73127 -1.5238,-20.36322 C 111.12933,102.26963 95.799447,101.18979 87.625258,89.703083 80.4505,78.853078 84.951074,62.47979 96.741427,56.8866 109.27847,49.66485 124.88298,50.394224 138.1562,54.892302 c -0.43556,9.958661 -0.20469,6.133135 -1.03477,13.969917 -7.66131,-4.888457 -17.5187,-6.763534 -26.49712,-4.966025 -7.06858,0.902626 -13.456999,7.377006 -11.770117,14.827864 1.988257,8.285985 11.172097,10.959065 18.180637,13.647104 9.63151,3.937816 21.08413,8.301428 24.94548,18.929348 3.70795,12.07982 1.16671,15.98436 -4.66836,23.73476 -3.96626,4.85599 -12.16204,7.65142 -12.16204,7.65142 19.44674,1.3265 41.05309,6.49115 56.17771,14.2901 C 115.0919,141.77113 96.300157,145.5861 41.892852,155.14025 Z"></path>
+</svg>
+              </div>
+              <span class="font-sans text-lg tracking-widest uppercase text-muted-800 dark:text-muted-100">olutio</span>
+            </a>
+            <p class="text-sm text-muted-500 dark:text-muted-400 mb-10 md:mb-0">
+              Ubicanos en Barrio Cuarto Centenario; Calle: Ernesto Trigo Nº 1237
+            </p>
+          </div>
+        </div>
+        <div class="lg:w-1/6 ltablet:w-1/6 md:w-1/2 w-full px-4">
+          <h2 class="font-medium tracking-widest text-sm mb-5 text-muted-800 dark:text-muted-100">
+            SERIVICIOS
+          </h2>
+          <ul class="list-none space-y-3 mb-10">
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">Computarizada</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">Electrónica</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">Certificación</a>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:w-1/6 ltablet:w-1/6 md:w-1/2 w-full px-4">
+          <h2 class="font-medium tracking-widest text-sm mb-5 text-muted-800 dark:text-muted-100">
+            Contacto
+          </h2>
+          <ul class="list-none space-y-3 mb-10">
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">(+591) 65366007</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">
+                ventas@factura.com.bo</a>
+            </li>
+            <li>
+              <a href="#" class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300">Tarija, Bolivia</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:w-1/6 ltablet:w-1/6 md:w-1/2 w-full px-4">
+          <h2 class="font-medium tracking-widest text-sm mb-5 text-muted-800 dark:text-muted-100">
+            SIGUENOS
+          </h2>
+          <span class="inline-flex ltablet:ml-auto lg:ml-auto md:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
+            <a class="text-muted-500">
+              <i class="iconify w-5 h-5" data-icon="fa6-brands:facebook-f"></i>
+            </a>
+            <a class="ml-3 text-muted-500">
+              <i class="iconify w-5 h-5" data-icon="fa6-brands:twitter"></i>
+            </a>
+            <a class="ml-3 text-muted-500">
+              <i class="iconify w-5 h-5" data-icon="fa6-brands:instagram"></i>
+            </a>
+            <a class="ml-3 text-muted-500">
+              <i class="iconify w-5 h-5" data-icon="fa6-brands:linkedin-in"></i>
+            </a>
+          </span>
+          <!-- <ul class="list-none space-y-3 mb-10">
+            <li>
+              <a
+                href="#"
+                class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300"
+                >Dokto Pro</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300"
+                >Dokto Community</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300"
+                >Documentation</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-sm text-muted-500 dark:text-muted-400 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-300"
+                >API Reference</a
+              >
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+</div>
+  <!-- <div class="border-t border-muted-200 dark:border-muted-800">
+    <Container>
+      <div class="px-5 py-8 flex flex-col md:flex-row mx-auto items-center">
+        <div
+          class="w-full ltablet:w-auto lg:w-auto flex flex-col md:flex-row items-center justify-center md:justify-start gap-y-2"
+        >
+          <div class="relative w-full sm:w-64 md:w-40 sm:mr-4 mr-2">
+            <input
+              type="text"
+              class="w-full h-10 bg-muted-100 dark:bg-muted-700 bg-opacity-50 rounded-lg border border-muted-300 dark:border-muted-600 text-sm text-muted-700 py-1 px-3 leading-8 tw-accessibility transition-colors duration-300 ease-in-out"
+              placeholder="Email Address"
+            />
+          </div>
+          <button
+            class="w-full md:w-auto h-10 inline-flex items-center justify-center text-white bg-primary-600 border-0 py-2 px-6 focus:outline-none hover:bg-primary-700 rounded-lg"
+            >Subscribe</button
+          >
+          <p
+            class="text-muted-500 text-sm md:ml-2 md:mt-0 mt-2 sm:text-left text-center"
+          >
+            to our Newsletter
+          </p>
+        </div>
+        <span
+          class="inline-flex ltablet:ml-auto lg:ml-auto md:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto"
+        >
+          <a class="text-muted-500">
+            <i class="iconify w-5 h-5" data-icon="fa6-brands:facebook-f"></i>
+          </a>
+          <a class="ml-3 text-muted-500">
+            <i class="iconify w-5 h-5" data-icon="fa6-brands:twitter"></i>
+          </a>
+          <a class="ml-3 text-muted-500">
+            <i class="iconify w-5 h-5" data-icon="fa6-brands:instagram"></i>
+          </a>
+          <a class="ml-3 text-muted-500">
+            <i class="iconify w-5 h-5" data-icon="fa6-brands:linkedin-in"></i>
+          </a>
+        </span>
+      </div>
+    </Container>
+  </div> -->
+
+  <div class="bg-muted-100 dark:bg-muted-800">
+    <div class="w-full max-w-7xl mx-auto">
+  <div class="py-4 px-5 flex flex-wrap justify-center sm:flex-row">
+        <p class="text-muted-500 dark:text-muted-400 text-sm text-center sm:text-left">
+          © 2023-2023 All Rights Reserved —
+          <a href="https://cssninja.io" class="hover:text-primary-500" target="_blank" rel="noopener noreferrer">sofac</a>
+        </p>
+      </div>
+</div>
+  </div>
+</footer>
+
+    <!-- Main script -->
+    
+  </body>
+</html>
