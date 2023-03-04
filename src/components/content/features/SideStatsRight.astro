@@ -1,0 +1,86 @@
+---
+import MockupOne from "@components/mockup/MockupOne.astro";
+---
+
+<div
+  id="characteristics"
+  class="flex flex-col md:flex-row items-center py-6"
+  x-intersect="activeStep = 'spy-2'"
+>
+  <!--Column-->
+  <div class="md:flex-column md:w-1/2">
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4 lg:pl-10">
+        <!--Badge-->
+        <h4
+          class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500"
+        >
+          Exportación de Facturas
+        </h4>
+        <!--Title-->
+        <h2
+          class="font-heading font-medium text-4xl text-muted-800 dark:text-white"
+        >
+          Sistema Autorizado
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Solutio-Facturación es un sistema autorizado por el Servicio de
+          Impuestos Nacionales de Bolivia.
+        </p>
+        <!--Link-->
+        <a
+          href="#"
+          class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300"
+        >
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i
+            class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+            data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="w-full relative p-6">
+      <!--Section content-->
+      <div class="w-full max-w-lg space-y-4 lg:pl-10">
+        <!--Badge-->
+        <h4
+          class="font-sans font-semibold text-xs tracking-widest uppercase mb-3 text-primary-500"
+        >
+          Exportación de Facturas
+        </h4>
+        <!--Title-->
+        <h2
+          class="font-heading font-medium text-4xl text-muted-800 dark:text-white"
+        >
+          Exportación de Facturas
+        </h2>
+        <!--Subtitle-->
+        <p class="font-sans text-lg text-muted-500 dark:text-muted-400">
+          Solutio-Facturación permite exportar sus facturas emitidas en formatos
+          PDF, Excel y XML.
+        </p>
+        <!--Link-->
+        <a
+          href="#"
+          class="group inline-flex items-center gap-4 text-primary-500 hover:text-primary-400 transition-colors duration-300"
+        >
+          <span class="font-sans font-medium text-sm">
+            Learn more about our suite
+          </span>
+          <i
+            class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+            data-icon="lucide:arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--Column-->
+  <div class="h-96 w-96 md:w-1/2 relative p-6">
+    <img src="/img/illustrations/invoice/dibujo.png" alt="Imagen" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full" />
+  </div>
+</div>
